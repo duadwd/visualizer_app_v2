@@ -7,10 +7,10 @@ console.log(`Data visualization server starting on http://localhost:${port}`);
 
 Deno.serve({ port: parseInt(port, 10) }, async (request) => {
     const url = new URL(request.url);
-    console.log(`Received request for: ${url.pathname}`);
+    // console.log(`Received request for: ${url.pathname}`);
 
     if (url.pathname === "/ws") {
-        console.log("WebSocket upgrade request received. Upgrading connection...");
+        // console.log("WebSocket upgrade request received. Upgrading connection...");
         try {
             const { socket, response } = Deno.upgradeWebSocket(request);
             handleChartConnection(socket);
