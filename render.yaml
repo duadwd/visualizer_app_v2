@@ -3,7 +3,5 @@ services:
     name: deno-proxy-visualizer
     env: deno
     plan: free
-    region: oregon # or another region of your choice
     branch: main
-    build_command: "deno cache main.ts"
-    start_command: "deno run --allow-net --allow-read --allow-env main.ts"
+    startCommand: "deno run --allow-net --allow-read --allow-env main.ts"
