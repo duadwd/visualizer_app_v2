@@ -1,6 +1,6 @@
 import { handleChartConnection } from './stream_handler.js';
 
-const CHART_DATA_ENDPOINT = '/ws/realtime-data'; // Formerly WEBSOCKET_PATH
+const CHART_DATA_ENDPOINT = Deno.env.get('PROXY_WEBSOCKET_PATH') || '/ws/realtime-data';
 
 // Fallback data sources for non-WebSocket requests, disguised as a redirect.
 const FALLBACK_DATA_SOURCES = [

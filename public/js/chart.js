@@ -31,26 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        console.log('Received data from server:', data);
-
-        // Clear the canvas before drawing new data
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        const barWidth = canvas.width / data.length;
-        let x = 0;
-
-        data.forEach(value => {
-            // Assuming the data values are between 0 and 100
-            const barHeight = (value / 100) * canvas.height;
-            const y = canvas.height - barHeight;
-
-            // Draw the bar
-            ctx.fillStyle = '#007bff'; // A nice blue color for the bars
-            ctx.fillRect(x, y, barWidth - 2, barHeight); // Subtract 2 for spacing between bars
-
-            x += barWidth;
-        });
+        console.log('Received data from server:', event.data);
+        // In a real chart, you would parse the data and update the canvas here.
+        // For this decoy, we just log it.
     };
 
     socket.onclose = (event) => {
