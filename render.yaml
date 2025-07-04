@@ -1,7 +1,14 @@
 services:
   - type: web
-    name: deno-proxy-visualizer
-    env: deno
+    name: deno-proxy-docker
+    env: docker
     plan: free
     branch: main
-    startCommand: "deno run --allow-net --allow-read --allow-env main.ts"
+    # Docker-specific settings
+    dockerfilePath: ./Dockerfile
+    # Health check to ensure the service is running
+    healthCheckPath: /
+    # Environment variables can be set here if needed
+    envVars:
+      - key: PROXY_WEBSOCKET_PATH
+        value: /ws/realtime-data
