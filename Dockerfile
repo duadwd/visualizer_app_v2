@@ -10,10 +10,10 @@ WORKDIR /app
 COPY . .
 
 # 运行deno cache来下载依赖（可选，但推荐）
-RUN deno cache main.ts
+RUN deno cache server/main.js
 
 # 暴露应用将监听的端口
 EXPOSE 8080
 
 # 容器启动时运行的命令
-CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "main.ts"]
+CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "server/main.js"]
